@@ -7,6 +7,7 @@ class RatingStars extends StatelessWidget {
   Widget build(BuildContext context) {
     int numberOfStars = rate.round();
     return Row(
+      //halfstar
       children: List<Widget>.generate(
               5,
               (index) => Icon(

@@ -93,9 +93,7 @@ class _SignInPageState extends State<SignInPage> {
                   style: greyFontStyle,
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Get.to(SignUpPage());
-                  },
+                  onTap: () {},
                   child: Text(
                     "Sign Up",
                     style: GoogleFonts.poppins(
@@ -120,7 +118,6 @@ class TextFieldContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 5),

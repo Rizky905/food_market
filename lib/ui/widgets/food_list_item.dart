@@ -2,9 +2,9 @@ part of 'widgets.dart';
 
 class FoodListItem extends StatelessWidget {
   final Food food;
-  final double itemWidht;
+  final double itemWidth;
 
-  FoodListItem({@required this.food, @required this.itemWidht});
+  FoodListItem({@required this.food, @required this.itemWidth});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class FoodListItem extends StatelessWidget {
                   image: NetworkImage(food.picturePath), fit: BoxFit.cover)),
         ),
         SizedBox(
-          width: itemWidht - 182, //(60 + 12 + 110)
+          width: itemWidth - 182, //(60 + 12 + 110)
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

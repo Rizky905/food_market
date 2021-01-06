@@ -65,11 +65,12 @@ class _FoodPageState extends State<FoodPage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Row(
-                    children: mockFood
+                    children: mockFoods
                         .map((e) => Padding(
                               padding: EdgeInsets.only(
-                                  left:
-                                      (e == mockFood.first) ? defaultMargin : 0,
+                                  left: (e == mockFoods.first)
+                                      ? defaultMargin
+                                      : 0,
                                   right: defaultMargin),
                               child: FoodCard(e),
                             ))
@@ -97,18 +98,19 @@ class _FoodPageState extends State<FoodPage> {
                   SizedBox(
                     height: 0,
                   ),
-                  Builder(builder: (Widget) {
+                  Builder(builder: (_) {
                     List<Food> foods = (selectedIndex == 0)
-                        ? mockFood
+                        ? mockFoods
                         : (selectedIndex == 1)
                             ? []
                             : [];
                     return Column(
                       children: foods
                           .map((e) => Padding(
-                                padding: EdgeInsets.fromLTRB(15, 10, 15, 15),
+                                padding: EdgeInsets.fromLTRB(
+                                    defaultMargin, 0, defaultMargin, 16),
                                 child: FoodListItem(
-                                    food: e, itemWidht: listItemWidth),
+                                    food: e, itemWidth: listItemWidth),
                               ))
                           .toList(),
                     );

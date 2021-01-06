@@ -13,12 +13,10 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            color: Colors.white,
-          ),
+          Container(color: Colors.white),
           SafeArea(
               child: Container(
-            color: 'FAFAFC'.toColor(),
+            color: Colors.white,
           )),
           SafeArea(
               child: PageView(
@@ -30,7 +28,7 @@ class _MainPageState extends State<MainPage> {
             },
             children: [
               Center(child: FoodPage()),
-              Center(child: Text("Order")),
+              Center(child: OrderHistoryPage()),
               Center(child: Text("Profile")),
             ],
           )),

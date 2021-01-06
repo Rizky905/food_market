@@ -12,7 +12,10 @@ class SearchBar extends StatelessWidget {
           showSearch(context: context, delegate: DataSearch());
         },
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        color: softGreyColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Row(
           children: <Widget>[
             Icon(
@@ -65,7 +68,9 @@ class DataSearch extends SearchDelegate<String> {
   }
 
   @override
-  Widget buildResults(BuildContext context) {}
+  Widget buildResults(BuildContext context) {
+    return Container();
+  }
 
   @override
   Widget buildSuggestions(BuildContext context) {
