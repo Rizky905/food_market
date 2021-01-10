@@ -31,8 +31,7 @@ class Food extends Equatable {
 List<Food> mockFoods = [
   Food(
       id: 1,
-      picturePath:
-          "https://s3.dimanaja.com/dimanaja/cover/8c3a769652c85f88f7be674657314037d57dd7a5.webp",
+      picturePath: "https://kbu-cdn.com/dk/wp-content/uploads/sate-ayam.jpg",
       name: "Sate",
       description: "cobain ah enak",
       ingredients: "bawang merah, daging",
@@ -61,19 +60,21 @@ List<Food> mockFoods = [
   Food(
       id: 4,
       picturePath:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8aQM3uLVwvcy5dd5EKFZf4NhEgwWyHbzfbw&usqp=CAU",
-      name: "Ikan bakar",
+          "https://img.jakpost.net/c/2019/11/12/2019_11_12_82229_1573532922._large.jpg",
+      name: "Hamburger",
       description: "cobain ah enak",
-      ingredients: "bawang merah, ikan",
+      ingredients: "Daging, Roti",
       price: 150000,
-      rate: 3.7),
+      rate: 3.7,
+      types: [FoodType.new_food, FoodType.popular_food, FoodType.recommended]),
   Food(
       id: 5,
       picturePath:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8aQM3uLVwvcy5dd5EKFZf4NhEgwWyHbzfbw&usqp=CAU",
-      name: "Ikan bakar",
+          "https://caramembuat.id/wp-content/uploads/2019/05/cara-membuat-steak.jpg",
+      name: "Steak",
       description: "cobain ah enak",
-      ingredients: "bawang merah, ikan",
+      ingredients: "Daging, Kentang",
       price: 150000,
-      rate: 3.7),
+      rate: 3.7,
+      types: [FoodType.new_food, FoodType.popular_food, FoodType.recommended]),
 ];

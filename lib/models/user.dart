@@ -33,5 +33,5 @@ User mockUser = User(
     houseNumber: '19',
     phoneNumber: '0080884141',
     city: 'jakarta',
-    email: 'eme@mail.com',
+    email: 'eme-chan@mail.com',
     picturePath: 'assets/aimer.png');

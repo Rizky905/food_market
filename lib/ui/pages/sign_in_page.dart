@@ -6,12 +6,11 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-    bool isLoading = false;
-
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
@@ -68,12 +67,36 @@ class _SignInPageState extends State<SignInPage> {
               height: 45,
               padding: EdgeInsets.symmetric(horizontal: 9),
               child: isLoading
-                  ? SpinKitFadingCircle(
-                      size: 45,
-                      color: orangeColor,
-                    )
+                  ? loadingIndicator
                   : RaisedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        setState(() {
+                          isLoading = true;
+                        });
+
+                        await context.bloc<UserCubit>().signIn(
+                            emailController.text, passwordController.text);
+                        UserState state = context.bloc<UserCubit>().state;
+                        if (state is UserLoaded) {
+                          context.bloc<FoodCubit>().geFoods();
+                          context.bloc<TransactionCubit>().getTransaction();
+                          Get.to(MainPage());
+                        } else {
+                          Get.snackbar("", "",
+                              backgroundColor: orangeColor,
+                              icon: Icon(MdiIcons.closeCircle,
+                                  color: Colors.white),
+                              titleText: Text('Sign In failed',
+                                  style: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500)),
+                              messageText:
+                                  Text((state as UserLoadingFailed).message));
+                          setState(() {
+                            isLoading = false;
+                          });
+                        }
+                      },
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
@@ -93,7 +116,11 @@ class _SignInPageState extends State<SignInPage> {
                   style: greyFontStyle,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      Get.to(SignUpPage());
+                    });
+                  },
                   child: Text(
                     "Sign Up",
                     style: GoogleFonts.poppins(
